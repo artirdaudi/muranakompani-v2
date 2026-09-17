@@ -1,0 +1,76 @@
+.page-intro { position: relative; overflow: hidden; }
+.intro-layout { display: grid; grid-template-columns: 1.3fr 1fr; gap: 70px; align-items: center; min-height: 340px; padding-top: 52px; padding-bottom: 52px; }
+.intro-copy { position: relative; z-index: 1; }
+.intro-copy > small { display: block; font-size: 10px; font-weight: 750; letter-spacing: .17em; margin-bottom: 19px; }
+.intro-copy h1 { font-size: clamp(36px, 4.5vw, 61px); line-height: 1.06; letter-spacing: -.045em; margin: 0 0 22px; text-wrap: balance; animation: intro-heading 850ms var(--ease-out) both; }
+.intro-copy > p { max-width: 510px; margin: 0; font-size: 15px; line-height: 1.8; animation: intro-heading 850ms var(--ease-out) 100ms both; }
+@keyframes intro-heading { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
+ .intro-products { background: #faf9f7; color: #202020; border-bottom: 1px solid #e7e2dd; }
+.intro-products .intro-layout { min-height: 330px; grid-template-columns: 1.2fr 1fr; }
+.intro-products .intro-copy > small, .intro-services .intro-copy > small { color: var(--red); }
+.intro-products .intro-copy > p, .intro-services .intro-copy > p { color: #626262; }
+.intro-product-index { border-top: 1px solid #d8cec8; }
+.intro-product-index a { display: flex; align-items: center; gap: 18px; border-bottom: 1px solid #d8cec8; padding: 18px 0; transition: color 200ms, padding 250ms var(--ease-out); }
+.intro-product-index a > span { color: var(--red); font-size: 10px; }
+.intro-product-index strong { font-size: 14px; font-weight: 550; }
+.intro-product-index svg { margin-left: auto; color: var(--red); }
+.intro-product-index a:hover { color: var(--red); padding-left: 8px; }
+.intro-services { background: #faf9f7; color: #202020; border-bottom: 1px solid #e7e2dd; }
+.intro-services .intro-layout { min-height: 330px; grid-template-columns: 1fr; }
+.intro-about { background: #f2eee7; color: #302923; border-bottom: 1px solid #dfd6ca; }
+.intro-about .intro-copy > small { color: var(--red); }
+.intro-about .intro-copy > p { color: #736458; }
+.intro-years { text-align: center; border-left: 1px solid #cdbfae; padding: 10px 20px; }
+.intro-years > strong { display: block; color: var(--red); font-size: clamp(95px, 12vw, 160px); line-height: 1; font-weight: 500; letter-spacing: -.08em; }
+.intro-years strong span { font-size: .5em; vertical-align: top; padding-top: 10px; display: inline-block; }
+.intro-years > span { display: block; margin-top: 18px; font-size: 10px; letter-spacing: .23em; }
+.intro-years i { display: block; width: 65px; height: 2px; background: var(--red); margin: 20px auto 0; }
+.intro-faq { background: #fbf1f0; color: #49272b; }
+.intro-faq .intro-layout { min-height: 280px; }
+.intro-faq .intro-copy > small { color: var(--red); }
+.intro-question { position: relative; justify-self: center; width: 215px; height: 185px; border-radius: 40px 40px 40px 0; border: 1px solid #b30d1225; background: #fff8f6; transform: rotate(-6deg); }
+.intro-question > span { display: block; color: var(--red); font-size: 160px; line-height: 180px; text-align: center; font-weight: 500; }
+.intro-question > svg { position: absolute; bottom: -20px; right: -35px; width: 70px; height: 70px; color: #9c555e; background: #fbf1f0; border-radius: 50%; stroke-width: 1; }
+.intro-contact { background: var(--red); color: white; }
+.intro-contact .intro-copy > small { color: #f4cbc9; }
+.intro-contact .intro-copy > p { color: #ffe5e3; }
+.intro-address { display: flex; gap: 9px; align-items: center; margin-top: 24px; font-size: 12px; }
+.intro-location { position: relative; width: 240px; height: 240px; justify-self: center; display: grid; place-items: center; }
+.intro-location > div { position: absolute; inset: 15px; border: 1px solid #ffffff35; border-radius: 50%; box-shadow: 0 0 0 30px #ffffff09, 0 0 0 60px #ffffff05; }
+.intro-location > svg { width: 120px; height: 120px; position: relative; }
+.intro-location > span { position: absolute; bottom: 20px; font-size: 9px; letter-spacing: .22em; }
+.intro-quote { background: #f7f7f5; color: #252827; border-bottom: 1px solid #e2e2dc; }
+.intro-quote .intro-copy > small { color: var(--red); }
+.intro-steps { padding: 0; margin: 28px 0 0; list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+.intro-steps li { display: flex; align-items: center; gap: 7px; font-size: 10px; color: #64675f; }
+.intro-steps span { color: var(--red); font-size: 9px; border-top: 1px solid var(--red); padding-top: 3px; }
+.intro-paper { justify-self: center; width: 185px; padding: 25px; background: white; border: 1px solid #e0dfd7; box-shadow: 9px 9px 0 #e9e7df; transform: rotate(6deg); }
+.intro-paper > svg { width: 48px; height: 48px; color: var(--red); margin-bottom: 20px; }
+.intro-paper > i { display: block; height: 1px; background: #deded6; margin: 13px 0; }
+.intro-paper > i:nth-of-type(3) { width: 65%; }
+.intro-paper > span { font-size: 7px; letter-spacing: .13em; display: block; margin-top: 28px; color: #75756c; }
+@media (max-width:900px) {
+  .intro-layout { gap: 30px; grid-template-columns: 1.4fr 1fr; }
+  .intro-copy h1 { font-size: 40px; }
+  .intro-question { width: 165px; height: 160px; }
+  .intro-question > span { font-size: 135px; line-height: 150px; }
+  .intro-location { width: 190px; height: 190px; }
+}
+@media (max-width:600px) {
+  .intro-layout { grid-template-columns: 1fr; gap: 25px; min-height: 0; padding-top: 38px; padding-bottom: 38px; }
+  .intro-copy h1 { font-size: 36px; }
+  .intro-copy > p { font-size: 13px; }
+  .intro-copy > small { font-size: 9px; line-height: 1.7; margin-bottom: 15px; }
+  .intro-products .intro-layout, .intro-services .intro-layout, .intro-faq .intro-layout { min-height: 0; }
+  .intro-years { display: flex; gap: 18px; align-items: center; text-align: left; border-left: 0; border-top: 1px solid #cdbfae; padding: 22px 0 0; }
+  .intro-years > strong { font-size: 85px; }
+  .intro-years > span { margin: 0; }
+  .intro-years i { display: none; }
+  .intro-question, .intro-location, .intro-paper { display: none; }
+  .intro-steps { gap: 12px; }
+}
+
+@media (max-width:600px) {
+  .intro-products .intro-layout, .intro-services .intro-layout { grid-template-columns: 1fr; min-height: 0; gap: 28px; }
+  .intro-product-index a { padding-top: 14px; padding-bottom: 14px; }
+}
