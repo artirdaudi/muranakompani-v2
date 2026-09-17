@@ -1,11 +1,12 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Link, NavLink, Route, Routes, useLocation, useNavigationType } from 'react-router-dom';
+import { Link, NavLink, Route, Routes, matchPath, useLocation, useNavigationType } from 'react-router-dom';
 import { ArrowRight, BadgeCheck, Box, ChevronDown, ChevronRight, Factory, Handshake, Mail, MapPin, PackageCheck, Phone, ShieldCheck, Truck, Users } from 'lucide-react';
 import { assets, copy } from './content';
 import { Photo } from './Media';
 import { Counter, Reveal, usePointerSurface } from './motion';
 import { ProductBlueprint, RouteCurtain } from './Scenes';
 import { PageIntro } from './PageIntro';
+import { NotFound, notFoundCopy } from './NotFound';
 import { ContactMap } from './ContactMap';
 import { ServicesContent, FAQContent } from './ServicePages';
 import { CompanyJourney, QuoteForm, WellStory } from './Experience';
@@ -149,12 +150,19 @@ function SEO({ lang }) {
   const { pathname } = useLocation();
   useEffect(() => {
     const t = copy[lang];
-    const key = { '/sherbimet': 'services', '/pyetje-te-shpeshta': 'faq', '/produkte': 'products', '/rreth-nesh': 'about', '/kontakt': 'contact', '/oferte': 'quote' }[pathname];
-    const title = key ? `${t.pages[key][0]} | Murana Kompani` : 'Murana Kompani | Elemente Betoni dhe Hapje Pusesh';
-    const description = key ? t.pages[key][1] : t.hero[4];
+    const pages = { '/sherbimet': 'services', '/pyetje-te-shpeshta': 'faq', '/produkte': 'products', '/rreth-nesh': 'about', '/kontakt': 'contact', '/oferte': 'quote' };
+    const route = Object.keys(pages).find(path => matchPath(path, pathname));
+    const key = pages[route];
+    const missing = !key && !matchPath('/', pathname);
+    const title = missing ? `404 — ${notFoundCopy[lang].title} | Murana Kompani` : key ? `${t.pages[key][0]} | Murana Kompani` : 'Murana Kompani | Elemente Betoni dhe Hapje Pusesh';
+    const description = missing ? notFoundCopy[lang].description : key ? t.pages[key][1] : t.hero[4];
     document.title = title;
+    const robots = document.querySelector('meta[name="robots"]');
+    const previousRobots = robots?.getAttribute('content');
+    if (missing) robots?.setAttribute('content', 'noindex, follow');
     for (const selector of ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]']) document.querySelector(selector)?.setAttribute('content', description);
     for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) document.querySelector(selector)?.setAttribute('content', title);
+    return () => { if (robots && previousRobots !== null) robots.setAttribute('content', previousRobots); };
   }, [pathname, lang]);
   return null;
 }
@@ -173,6 +181,6 @@ export default function App() {
     <Route path="/rreth-nesh" element={<AboutPage t={t} lang={lang}/>}/>
     <Route path="/kontakt" element={<ContactPage t={t} lang={lang}/>}/>
     <Route path="/oferte" element={<ContactPage t={t} lang={lang} quote/>}/>
-    <Route path="*" element={<Home t={t} lang={lang}/>}/>
+    <Route path="*" element={<NotFound lang={lang}/>}/>
   </Routes></div></div></main><Footer t={t} lang={lang}/></>;
 }

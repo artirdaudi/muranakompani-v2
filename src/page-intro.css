@@ -74,3 +74,9 @@
   .intro-products .intro-layout, .intro-services .intro-layout { grid-template-columns: 1fr; min-height: 0; gap: 28px; }
   .intro-product-index a { padding-top: 14px; padding-bottom: 14px; }
 }
+
+.not-found { padding: 55px 0 80px; text-align: center; background: #faf9f7; }
+.not-found-code { display: block; font-size: clamp(110px, 20vw, 220px); font-weight: 800; line-height: 1.05; letter-spacing: -.07em; color: var(--red); margin-bottom: 20px; }
+.not-found h1 { font-size: clamp(28px, 4vw, 43px); line-height: 1.2; letter-spacing: -.035em; margin: 15px 0; }
+.not-found p { max-width: 470px; margin: 0 auto; color: #666; font-size: 15px; line-height: 1.8; }
+.not-found-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 18px 30px; margin-top: 30px; }
