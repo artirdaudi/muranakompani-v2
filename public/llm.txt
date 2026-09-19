@@ -1,0 +1,5 @@
+# Murana Kompani
+
+The canonical AI-readable website summary is available at:
+https://muranakompani.mk/llms.txt
+

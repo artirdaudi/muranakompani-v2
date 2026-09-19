@@ -1,7 +1,8 @@
 /* Shared motion vocabulary: short travel, deliberate easing, visible content by default. */
 :root { --ease-out: cubic-bezier(.22,1,.36,1); --ease-ui: cubic-bezier(.2,.7,.3,1); --header-height: 98px; }
-html { scroll-padding-top: calc(var(--header-height) + 24px); }
-body { overflow-x: clip; }
+html { scroll-padding-top: calc(var(--header-height) + 24px); overflow-x: hidden; width: 100%; }
+body, #root { width: 100%; max-width: 100%; overflow-x: hidden; }
+main, .route-content, .language-a, .language-b { min-width: 0; width: 100%; }
 button, input, select, textarea { font-family: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }

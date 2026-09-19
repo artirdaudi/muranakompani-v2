@@ -6,7 +6,7 @@ import { Photo } from './Media';
 import { WellStory } from './Experience';
 import { assets } from './content';
 
-const content = {
+export const servicePageContent = {
   al: {
     intro: 'Nga vendndodhja te realizimi',
     title: 'Një shërbim i plotë për pusin tuaj',
@@ -76,7 +76,7 @@ const content = {
 };
 
 export function ServicesContent({ t, lang }) {
-  const c = content[lang];
+  const c = servicePageContent[lang];
   const icons = [MapPin, MessageCircle, Phone];
   return <>
     <section className="service-intro wrap">
@@ -103,7 +103,7 @@ function FAQItem({ question, answer, id }) {
 }
 
 export function FAQContent({ lang }) {
-  const c = content[lang];
+  const c = servicePageContent[lang];
   return <section className="faq-layout wrap">
     <aside className="faq-sidebar"><small className="eyebrow">{c.faqIntro}</small><h2>{c.faqTitle}</h2>
       <nav aria-label={lang === 'mk' ? 'Категории на прашања' : 'Kategoritë e pyetjeve'}>{c.groups.map((group, i) => <Link to={`#${group.id}`} key={group.id}><span>0{i+1}</span>{group.title}<ArrowRight size={15} aria-hidden="true"/></Link>)}</nav>

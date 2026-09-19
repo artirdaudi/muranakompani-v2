@@ -50,6 +50,7 @@
 }
 @media (max-width:600px) {
   .service-intro, .faq-layout { grid-template-columns: 1fr; padding-top: 42px; padding-bottom: 45px; }
+  .service-intro > *, .faq-layout > *, .contact > *, .preparation-grid > * { min-width: 0; }
   .service-photo img { height: 320px; }
   .service-copy > p { font-size: 14px; }
   .service-preparation { padding-top: 45px; padding-bottom: 45px; }
@@ -73,4 +74,8 @@
   .contact.contact-with-map { grid-template-columns: 1fr; gap: 40px; }
   .contact-with-map .contact-info { max-width: none; }
 }
-@media (max-width:600px) { .contact-map-frame iframe { height: 320px; } }
+@media (max-width:600px) {
+  .contact-map-frame iframe { height: 320px; max-width: 100%; }
+  .contact-map-bottom, .request-actions { min-width: 0; }
+  .contact-map-bottom .text-link, .request-actions .button { max-width: 100%; overflow-wrap: anywhere; }
+}

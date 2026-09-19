@@ -1,12 +1,13 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Link, NavLink, Route, Routes, matchPath, useLocation, useNavigationType } from 'react-router-dom';
+import { Link, NavLink, Route, Routes, useLocation, useNavigationType } from 'react-router-dom';
 import { ArrowRight, BadgeCheck, Box, ChevronDown, ChevronRight, Factory, Handshake, Mail, MapPin, PackageCheck, Phone, ShieldCheck, Truck, Users } from 'lucide-react';
 import { assets, copy } from './content';
 import { Photo } from './Media';
 import { Counter, Reveal, usePointerSurface } from './motion';
 import { ProductBlueprint, RouteCurtain } from './Scenes';
 import { PageIntro } from './PageIntro';
-import { NotFound, notFoundCopy } from './NotFound';
+import { NotFound } from './NotFound';
+import { SEO } from './SEO';
 import { ContactMap } from './ContactMap';
 import { ServicesContent, FAQContent } from './ServicePages';
 import { CompanyJourney, QuoteForm, WellStory } from './Experience';
@@ -111,7 +112,7 @@ function Footer({ t, lang }) {
 }
 function Home({ t, lang }) { return <><Hero t={t}/><Products t={t} lang={lang}/><Values t={t}/><About t={t}/><Stats t={t}/><WellStory t={t} lang={lang}/><CTA t={t}/></>; }
 function AboutPage({ t, lang }) {
-  return <><PageIntro variant="about" lang={lang} title={t.pages.about[0]} desc={t.pages.about[1]}/><section className="benefit-detail wrap"><Reveal><small>MURANA KOMPANI</small><h2>{t.company[0]}</h2><p>{t.company[1]}</p><p>{t.company[2]}</p></Reveal><Reveal kind="image" className="parallax-frame"><Photo src={assets.hero} alt="Murana Kompani"/></Reveal></section><CompanyJourney t={t} lang={lang}/><Values t={t}/><Stats t={t}/><CTA t={t}/></>;
+  return <><PageIntro variant="about" lang={lang} title={t.pages.about[0]} desc={t.pages.about[1]}/><section className="benefit-detail wrap"><Reveal><small>MURANA KOMPANI</small><h2>{t.company[0]}</h2><p>{t.company[1]}</p><p>{t.company[2]}</p></Reveal><Reveal kind="image" className="parallax-frame"><Photo src={assets.hero} alt={lang === 'mk' ? 'Камион на Мурана Компани со бетонски елементи' : 'Kamioni i Murana Kompani me elemente betoni'}/></Reveal></section><CompanyJourney t={t} lang={lang}/><Values t={t}/><Stats t={t}/><CTA t={t}/></>;
 }
 function ContactPage({ t, lang, quote = false }) {
   const p = quote ? t.pages.quote : t.pages.contact;
@@ -144,26 +145,6 @@ function ScrollTop() {
     window.addEventListener('scroll', remember, { passive: true });
     return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', remember); };
   }, [location.key, location.pathname, location.hash, navigationType]);
-  return null;
-}
-function SEO({ lang }) {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    const t = copy[lang];
-    const pages = { '/sherbimet': 'services', '/pyetje-te-shpeshta': 'faq', '/produkte': 'products', '/rreth-nesh': 'about', '/kontakt': 'contact', '/oferte': 'quote' };
-    const route = Object.keys(pages).find(path => matchPath(path, pathname));
-    const key = pages[route];
-    const missing = !key && !matchPath('/', pathname);
-    const title = missing ? `404 — ${notFoundCopy[lang].title} | Murana Kompani` : key ? `${t.pages[key][0]} | Murana Kompani` : 'Murana Kompani | Elemente Betoni dhe Hapje Pusesh';
-    const description = missing ? notFoundCopy[lang].description : key ? t.pages[key][1] : t.hero[4];
-    document.title = title;
-    const robots = document.querySelector('meta[name="robots"]');
-    const previousRobots = robots?.getAttribute('content');
-    if (missing) robots?.setAttribute('content', 'noindex, follow');
-    for (const selector of ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]']) document.querySelector(selector)?.setAttribute('content', description);
-    for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) document.querySelector(selector)?.setAttribute('content', title);
-    return () => { if (robots && previousRobots !== null) robots.setAttribute('content', previousRobots); };
-  }, [pathname, lang]);
   return null;
 }
 export default function App() {

@@ -1,0 +1,36 @@
+# Murana Kompani
+
+> Murana Kompani is a family business based in Zhelinë, North Macedonia, producing concrete elements and providing professional water-well drilling services. The website is available in Albanian and Macedonian.
+
+## Main pages
+
+- [Home](https://muranakompani.mk/): Company overview, products, services, experience, and contact actions.
+- [Concrete products](https://muranakompani.mk/produkte): Concrete pipes, conical concrete elements, square concrete elements, and concrete covers.
+- [Water-well drilling](https://muranakompani.mk/sherbimet): Service overview, work process, and information needed for a project inquiry.
+- [About Murana Kompani](https://muranakompani.mk/rreth-nesh): Company background and more than 30 years of experience.
+- [Frequently asked questions](https://muranakompani.mk/pyetje-te-shpeshta): Answers about services, products, dimensions, transport, and quote requests.
+- [Contact and location](https://muranakompani.mk/kontakt): Phone numbers, email address, postal address, and Google Maps location.
+- [Request a quote](https://muranakompani.mk/oferte): Prepares an email inquiry for the visitor to send from their email application.
+
+## Products and services
+
+- Concrete pipes for drainage, sewerage, and irrigation projects.
+- Conical concrete elements.
+- Square concrete elements.
+- Concrete covers.
+- Professional water-well drilling using professional equipment and concrete pipes made by Murana Kompani.
+
+## Verified contact information
+
+- Address: ul. Klisura bb, Zhelinë, 1226, North Macedonia
+- Elvir Alii: +389 70 209 863
+- Rakip Alii: +389 70 209 638
+- Email: murana.kompani@hotmail.com
+- Google Maps: https://www.google.com/maps?cid=15570016804997985607
+
+## Notes for automated systems
+
+- Product dimensions, availability, prices, delivery terms, well depth, and project schedules are confirmed directly with Murana Kompani.
+- The quote form does not send an email automatically. It prepares a message and opens the visitor's email application.
+- Prefer the website's Albanian or Macedonian copy when quoting Murana Kompani.
+
